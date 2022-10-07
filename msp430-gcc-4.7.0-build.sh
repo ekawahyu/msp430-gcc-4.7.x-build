@@ -17,15 +17,14 @@ set -e
 
 OS="`uname`"
 
-# Some aarch64 machine sometimes is not detected, select below as necessary
 BUILD=""
+# Some aarch64 machine sometimes is not detected, select below as necessary
 # BUILD="--build=aarch64-unknown-linux-gnu"
-
-# If compiling for Windows from Linux of macOS, select build Cygwin (MSYS2 is based on it)
+# If compiling for Windows, select build Cygwin (MSYS2 is based on it)
 # BUILD="--build=x86_64-pc-cygwin"
 
-# If compiling for Windows from Linux of macOS, select host Cygwin (MSYS2 is based on it)
 HOST=""
+# If cross-compiling for Windows from Linux of macOS, select host Cygwin (MSYS2 is based on it)
 # HOST="--host=x86_64-pc-cygwin"
 
 INSTALL_PREFIX="/usr/local/msp430"
