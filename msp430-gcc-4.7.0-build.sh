@@ -36,14 +36,28 @@ cd tmp
 
 # Getting sources
 if [ $OS != "Darwin" ]; then
-    wget -c https://ftp.gnu.org/gnu/texinfo/texinfo-4.8.tar.bz2
+    if [ ! -f texinfo-4.8.tar.bz2 ]; then
+        wget -c https://ftp.gnu.org/gnu/texinfo/texinfo-4.8.tar.bz2
+    fi
 fi
-wget -c http://sourceforge.net/projects/mspgcc/files/mspgcc/DEVEL-4.7.x/mspgcc-20120911.tar.bz2
-wget -c https://raw.githubusercontent.com/tgtakaoka/homebrew-mspgcc/master/patches/gcc-4.7.0-patches.tar.xz
-wget -c http://sourceforge.net/projects/mspgcc/files/msp430mcu/msp430mcu-20130321.tar.bz2
-wget -c http://sourceforge.net/projects/mspgcc/files/msp430-libc/msp430-libc-20120716.tar.bz2
-wget -c https://ftp.gnu.org/gnu/binutils/binutils-2.22.tar.bz2
-wget -c http://ftp.gnu.org/gnu/gcc/gcc-4.7.0/gcc-4.7.0.tar.bz2
+if [ ! -f mspgcc-20120911.tar.bz2 ]; then
+    wget -c http://sourceforge.net/projects/mspgcc/files/mspgcc/DEVEL-4.7.x/mspgcc-20120911.tar.bz2
+fi
+if [ ! -f gcc-4.7.0-patches.tar.xz ]; then
+    wget -c https://raw.githubusercontent.com/tgtakaoka/homebrew-mspgcc/master/patches/gcc-4.7.0-patches.tar.xz
+fi
+if [ ! -f msp430mcu-20130321.tar.bz2 ]; then
+    wget -c http://sourceforge.net/projects/mspgcc/files/msp430mcu/msp430mcu-20130321.tar.bz2
+fi
+if [ ! -f msp430-libc-20120716.tar.bz2 ]; then
+    wget -c http://sourceforge.net/projects/mspgcc/files/msp430-libc/msp430-libc-20120716.tar.bz2
+fi
+if [ ! -f binutils-2.22.tar.bz2 ]; then
+    wget -c https://ftp.gnu.org/gnu/binutils/binutils-2.22.tar.bz2
+fi
+if [ ! -f gcc-4.7.0.tar.bz2 ]; then
+    wget -c http://ftp.gnu.org/gnu/gcc/gcc-4.7.0/gcc-4.7.0.tar.bz2
+fi
 
 # Unpacking sources
 if [ $OS != "Darwin" ]; then
